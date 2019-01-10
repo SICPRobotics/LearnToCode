@@ -7,6 +7,10 @@
 
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -30,7 +34,8 @@ public class Robot extends TimedRobot
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
-  Talon newTalon;
+  
+  WPI_TalonSRX motor1 = new  WPI_TalonSRX(1);
 
   /**
    * This function is run when the robot is first started up and should be
@@ -40,7 +45,6 @@ public class Robot extends TimedRobot
   public void robotInit() 
   {
     m_oi = new OI();
-    newTalon = new Talon(0);
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
@@ -114,7 +118,6 @@ public class Robot extends TimedRobot
   public void autonomousPeriodic() 
   {
     Scheduler.getInstance().run();
-    newTalon.set(0.1);
   }
 
   @Override
@@ -145,6 +148,5 @@ public class Robot extends TimedRobot
   public void testPeriodic() 
   {
     System.out.print("Hello");
-    newTalon.set(.8);
   }
 }
