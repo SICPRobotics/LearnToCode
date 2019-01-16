@@ -12,11 +12,13 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 /**
  * Add your docs here.
  */
-public class DriveTrain extends PIDSubsystem {
+public class DriveTrain extends PIDSubsystem 
+{
   /**
    * Add your docs here.
    */
-  public DriveTrain() {
+  public DriveTrain() 
+  {
     // Intert a subsystem name and PID values here
     super("SubsystemName", 1, 2, 3);
     // Use these to get going:
@@ -26,13 +28,15 @@ public class DriveTrain extends PIDSubsystem {
   }
 
   @Override
-  public void initDefaultCommand() {
+  public void initDefaultCommand() 
+  {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
 
   @Override
-  protected double returnPIDInput() {
+  protected double returnPIDInput() 
+  {
     // Return your input value for the PID loop
     // e.g. a sensor, like a potentiometer:
     // yourPot.getAverageVoltage() / kYourMaxVoltage;
@@ -40,7 +44,8 @@ public class DriveTrain extends PIDSubsystem {
   }
 
   @Override
-  protected void usePIDOutput(double output) {
+  protected void usePIDOutput(double output) 
+  {
     // Use output to drive your system, like a motor
     // e.g. yourMotor.set(output);
   }
