@@ -45,6 +45,7 @@ public class Robot extends TimedRobot
   public void robotInit() 
   {
     m_oi = new OI();
+    
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
@@ -140,6 +141,7 @@ public class Robot extends TimedRobot
   public void teleopPeriodic() 
   {
     Scheduler.getInstance().run();
+    m_oi.oneJoystick.getAxis(0.0);
   }
 
   /**
